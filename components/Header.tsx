@@ -7,22 +7,22 @@ import Link from "next/link";
 function Header() {
   const { user, isSignedIn } = useUser();
   return (
-    <div className="p-5 flex justify-between items-center border shadow-sm">
+    <div className="p-5 flex justify-between  bg-black items-center border-b shadow-sm">
       <div className="flex flex-row items-center">
         <Image src={"/finance.svg"} alt="logo" width={40} height={25} />
-        <span className="text-blue-800  font-bold text-xl">FinanSmart</span>
+        <span className="text-blue-800  font-bold text-xl">Finance Tracker</span>
       </div>
       {isSignedIn ? (
         <UserButton />
       ) : (
         <div className="flex gap-3  items-center">
           <Link href={"/dashboard"}>
-            <Button variant="outline" className="rounded-full">
+            <Button variant="outline" className="rounded-full hover:bg-white/75">
               Dashboard
             </Button>
           </Link>
           <Link href={"/sign-in"}>
-            <Button className="rounded-full">Get Started</Button>
+            <Button className="rounded-full bg-blue-900 hover:bg-blue-950">Get Started</Button>
           </Link>
         </div>
       )}
