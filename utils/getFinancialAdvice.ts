@@ -19,7 +19,7 @@ interface FinancialData {
 interface ChatCompletion {
     choices: {
         message: {
-            content: string;
+            content: string | null;
         };
     }[];
 }
