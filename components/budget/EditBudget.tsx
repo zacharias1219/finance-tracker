@@ -19,12 +19,24 @@ import { db } from "@/utils/dbConfig";
 import { Budgets } from "@/utils/schema";
 import { eq } from "drizzle-orm";
 import { toast } from "sonner";
-function EditBudget({ budgetInfo, refreshData }) {
+interface BudgetInfo {
+  id: string;
+  name: string;
+  amount: number;
+  icon: string;
+}
+
+interface EditBudgetProps {
+  budgetInfo: BudgetInfo;
+  refreshData: () => void;
+}
+
+function EditBudget({ budgetInfo, refreshData }: EditBudgetProps) {
   const [emojiIcon, setEmojiIcon] = useState(budgetInfo?.icon);
   const [openEmojiPicker, setOpenEmojiPicker] = useState(false);
 
-  const [name, setName] = useState();
-  const [amount, setAmount] = useState();
+  const [name, setName] = useState<string>("");
+  const [amount, setAmount] = useState<number | undefined>(undefined);
 
   const { user } = useUser();
 
@@ -40,10 +52,10 @@ function EditBudget({ budgetInfo, refreshData }) {
       .update(Budgets)
       .set({
         name: name,
-        amount: amount,
+        amount: amount?.toString(),
         icon: emojiIcon,
       })
-      .where(eq(Budgets.id, budgetInfo.id))
+      .where(eq(Budgets.id, Number(budgetInfo.id)))
       .returning();
 
     if (result) {
@@ -95,7 +107,7 @@ function EditBudget({ budgetInfo, refreshData }) {
                     type="number"
                     defaultValue={budgetInfo?.amount}
                     placeholder="e.g. 5000$"
-                    onChange={(e) => setAmount(e.target.value)}
+                    onChange={(e) => setAmount(Number(e.target.value))}
                   />
                 </div>
               </div>
