@@ -8,7 +8,7 @@ import { useUser } from "@clerk/nextjs";
 import { eq } from "drizzle-orm";
 import { useRouter } from "next/navigation";
 
-function DashboardLayout({ children }) {
+function DashboardLayout({ children } ) {
   const { user } = useUser();
   const router = useRouter();
   useEffect(() => {

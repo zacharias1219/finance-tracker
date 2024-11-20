@@ -6,8 +6,8 @@ import { db } from "@/utils/dbConfig";
 import { desc, eq, getTableColumns, sql } from "drizzle-orm";
 import { Budgets, Expenses, Incomes } from "@/utils/schema";
 import BarChartDashboard from "@/components/dashboard/BarChartDashboard";
-import BudgetItem from "./budgets/_components/BudgetItem";
-import ExpenseListTable from "./expenses/_components/ExpenseListTable";
+import BudgetItem from "@/components/budget/BudgetItem";
+import ExpenseListTable from "@/components/expense/ExpenseListTable";
 function Dashboard() {
   const { user } = useUser();
 
