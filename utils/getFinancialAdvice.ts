@@ -49,7 +49,7 @@ const getFinancialAdvice = async (
         const advice = chatCompletion.choices[0].message.content;
 
         console.log(advice);
-        return advice;
+        return advice ?? "No advice available at this moment.";
     } catch (error) {
         console.error("Error fetching financial advice:", error);
         return "Sorry, I couldn't fetch the financial advice at this moment. Please try again later.";

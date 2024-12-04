@@ -8,7 +8,7 @@ import { useUser } from "@clerk/nextjs";
 import { eq } from "drizzle-orm";
 import { useRouter } from "next/navigation";
 
-function DashboardLayout({ children } ) {
+function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { user } = useUser();
   const router = useRouter();
   useEffect(() => {
@@ -16,10 +16,13 @@ function DashboardLayout({ children } ) {
   }, [user]);
 
   const checkUserBudgets = async () => {
+    const email = user?.primaryEmailAddress?.emailAddress;
+    if (!email) return;
+    
     const result = await db
       .select()
       .from(Budgets)
-      .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress));
+      .where(eq(Budgets.createdBy, email));
     console.log(result);
     if (result?.length == 0) {
       router.replace("/dashboard/budgets");

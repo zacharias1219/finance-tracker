@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { UserButton, useUser } from "@clerk/nextjs";
-import CardInfo from "@/components/dashboard/CardInfo";
+import CardInfo from "./_components/CardInfo";
 import { db } from "@/utils/dbConfig";
 import { desc, eq, getTableColumns, sql } from "drizzle-orm";
 import { Budgets, Expenses, Incomes } from "@/utils/schema";
-import BarChartDashboard from "@/components/dashboard/BarChartDashboard";
-import BudgetItem from "@/components/budget/BudgetItem";
-import ExpenseListTable from "@/components/expense/ExpenseListTable";
+import BarChartDashboard from "./_components/BarChartDashboard";
+import BudgetItem from "./budgets/_components/BudgetItem";
+import ExpenseListTable from "./expenses/_components/ExpenseListTable";
 function Dashboard() {
   const { user } = useUser();
 

@@ -5,8 +5,8 @@ import { useUser } from "@clerk/nextjs";
 import { desc, eq, getTableColumns, sql } from "drizzle-orm";
 import React, { useEffect, useState } from "react";
 import BudgetItem from "@/components/budget/BudgetItem";
-import AddExpense from "../_components/AddExpense";
-import ExpenseListTable from "../_components/ExpenseListTable";
+import AddExpense from "@/components/expense/AddExpenses";
+import ExpenseListTable from "@/components/expense/ExpenseListTable";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Pen, PenBox, Trash } from "lucide-react";
 import {
@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import EditBudget from "../_components/EditBudget";
+import EditBudget from "@/components/expense/EditBudget";
 
 function ExpensesScreen({ params }) {
   const { user } = useUser();
