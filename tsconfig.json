@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(root)/page.jsx", "app/(root)/expenses/page.jsx", "app/(root)/expenses/[id]/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(root)/page.jsx", "app/(root)/expenses/page.jsx", "app/(root)/expenses/[id]/page.jsx", "components/budget/BudgetList.jsx", "components/budget/CreateBudget.jsx", "components/dashboard/BarChartDashboard.jsx", "components/dashboard/CardInfo.jsx", "components/incomes/CreateIncomes.jsx", "components/incomes/IncomeList.jsx"],
   "exclude": ["node_modules"]
 }

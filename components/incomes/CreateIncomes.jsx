@@ -18,11 +18,8 @@ import { Incomes } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { toast } from "sonner";
 
-interface CreateIncomesProps {
-  refreshData: () => void;
-}
 
-function CreateIncomes({ refreshData }: CreateIncomesProps) {
+function CreateIncomes({ refreshData }) {
   const [emojiIcon, setEmojiIcon] = useState("😀");
   const [openEmojiPicker, setOpenEmojiPicker] = useState(false);
 
