@@ -7,13 +7,7 @@ import moment from "moment";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
-interface AddExpenseProps {
-  budgetId: string;
-  user: any;
-  refreshData: () => void;
-}
-
-function AddExpense({ budgetId, user, refreshData }: AddExpenseProps) {
+function AddExpense({ budgetId, user, refreshData }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
